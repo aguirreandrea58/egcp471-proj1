@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>One-Time PIN Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #1e293b;">
+<!--<body class="bg-gray-200 flex items-center justify-center h-screen">-->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <h1 class="text-2xl font-semibold mb-4">One-Time PIN Generator</h1>
+        <div id="pin-display" class="text-4xl font-bold text-blue-500"></div>
+    </div>
+
+    <script>
+        // Function to generate a random 4-digit PIN
+        function generateRandomPIN() {
+            return Math.floor(1000 + Math.random() * 9000);
+        }
+
+        // Check if the PIN is generated and stored in sessionStorage
+        let pin = sessionStorage.getItem('oneTimePIN');
+        if (!pin) {
+            // Generate a new PIN if it doesn't exist in sessionStorage
+            pin = generateRandomPIN();
+            sessionStorage.setItem('oneTimePIN', pin);
+        }
+
+        // Display the generated PIN
+        document.getElementById('pin-display').textContent = `Your one-time PIN: ${pin}`;
+
+        // Remove the PIN from sessionStorage after it has been displayed
+        sessionStorage.removeItem('oneTimePIN');
+    </script>
+</body>
+</html>

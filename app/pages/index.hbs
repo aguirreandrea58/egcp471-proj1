@@ -1,0 +1,12 @@
+<div class="center">
+<h1 class="page-title">Welcome to <span class="blue-gradient">TuffyEats!</span></h1>
+<p class="description">In a rush? Use our app to order your next meal!</p>
+<img src="https://bloximages.newyork1.vip.townnews.com/dailytitan.com/content/tncms/assets/v3/editorial/d/34/d34828d3-9134-55ce-8dcc-2bfcdf4c6483/5f3af90d3ed26.image.jpg?resize=499%2C500" width="400" class="mb-4" alt="">
+{{#if currentUser}}
+    <p class="description">Welcome back, {{currentUser.details.username}}!</p>
+    <a class="btn-primary" href="/{{currentUser.details.username}}">Go to your dashboard</a>
+{{else}}
+    <a class="btn-primary" href="/user/signup">Sign up here!</a>
+    <a class="btn-primary" href="/user/login">Already have an account?</a>
+{{/if}}
+</div>
